@@ -178,7 +178,7 @@ def load_data(col):
     return pd.DataFrame.from_dict(fl, orient="index").reset_index().rename(columns={"index": "File"})[["Collection", "Item", "File", "Size", "CARTime"]]
 
 
-@st.cache_data(ttl=300, show_spinner="Loading Sapde CSV...")
+@st.cache_data(ttl=300, show_spinner="Loading Spade CSV...")
 def load_spade(id):
     download(identifier=id, destdir=SPADECACHE, no_directory=True, checksum=True)
     csvf = glob.glob(os.path.join(SPADECACHE, "*.csv"))
